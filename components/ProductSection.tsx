@@ -8,14 +8,14 @@ interface ProductSectionProps extends SectionProps {
   viewMoreText?: string;
 }
 
-const ProductSection: React.FC<ProductSectionProps> = ({ 
-  title, 
-  subtitle, 
-  items, 
-  bgColor = 'bg-white', 
+const ProductSection: React.FC<ProductSectionProps> = ({
+  title,
+  subtitle,
+  items,
+  bgColor = 'bg-white',
   cardBgColor = 'bg-white',
-  viewMoreLink, 
-  viewMoreText 
+  viewMoreLink,
+  viewMoreText
 }) => {
   return (
     <section className={`w-full py-24 px-6 ${bgColor} flex flex-col items-center gap-16 relative z-10`}>
@@ -37,9 +37,9 @@ const ProductSection: React.FC<ProductSectionProps> = ({
       </div>
 
       {viewMoreLink && (
-        <a 
+        <a
           href={viewMoreLink}
-          className="mt-4 px-10 py-4 rounded-full text-white text-lg font-bold bg-gradient-to-r from-orange-400 to-red-500 hover:shadow-[0_10px_20px_rgba(255,100,0,0.3)] transition-all transform hover:-translate-y-1"
+          className="mt-4 px-10 py-4 rounded-full text-white text-lg font-bold bg-secondary hover:brightness-110 hover:shadow-[0_10px_20px_rgba(255,0,60,0.3)] transition-all transform hover:-translate-y-1"
         >
           {viewMoreText || "View full Menu"}
         </a>

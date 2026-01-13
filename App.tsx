@@ -1,57 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductSection from './components/ProductSection';
 import ReviewsSection from './components/ReviewsSection';
 import Footer from './components/Footer';
-import { PIZZAS, DESSERTS, WINES, ASSETS } from './constants';
+import { ASSETS, getData } from './constants';
+import { TRANSLATIONS } from './translations';
 import { Phone } from 'lucide-react';
 
 const App: React.FC = () => {
+  const [currentLang, setCurrentLang] = useState<'fr' | 'en' | 'it'>('fr');
+
+  const data = getData(currentLang);
+  const t = TRANSLATIONS[currentLang];
+
   return (
     <div className="min-h-screen w-full bg-white">
-      <Navbar />
+      <Navbar currentLang={currentLang} setCurrentLang={setCurrentLang} t={t.navbar} />
 
       <main>
-        <Hero />
+        <Hero t={t.hero} />
 
         {/* Popular Pizzas Section */}
         <div id="menu">
           <ProductSection
-            title="Fan Favorites ❤️"
-            subtitle="From classic combinations to bold flavors, these pizzas top our list for a reason."
-            items={PIZZAS}
-            bgColor="bg-[#fff0f0]"
+            title={t.menu.pizzas.title}
+            subtitle={t.menu.pizzas.subtitle}
+            items={data.PIZZAS}
+            bgColor="bg-stone-50"
             cardBgColor="bg-white"
             viewMoreLink="#"
-            viewMoreText="View full Menu"
+            viewMoreText={t.menu.pizzas.viewMore}
           />
         </div>
 
         {/* Desserts Section */}
         <ProductSection
-          title="Save Room for Dessert!"
-          subtitle="Our desserts are worth it. Trust us, you won’t want to miss these sweet delights."
-          items={DESSERTS}
+          title={t.menu.desserts.title}
+          subtitle={t.menu.desserts.subtitle}
+          items={data.DESSERTS}
           bgColor="bg-white"
-          cardBgColor="bg-[#fff0f0]"
+          cardBgColor="bg-stone-50"
           viewMoreLink="#"
-          viewMoreText="View full Menu"
+          viewMoreText={t.menu.desserts.viewMore}
         />
 
-        {/* Wines Section */}
+        {/* Drinks Section */}
         <ProductSection
-          title="Italian Vineyards & Local Flavors 🍷"
-          subtitle="Elevate your dining experience with our curated selection of authentic Italian wines and classic apéritifs."
-          items={WINES}
-          bgColor="bg-[#fff0f0]"
+          title={t.menu.drinks.title}
+          subtitle={t.menu.drinks.subtitle}
+          items={data.DRINKS}
+          bgColor="bg-stone-50"
           cardBgColor="bg-white"
           viewMoreLink="#"
-          viewMoreText="View Wine List"
+          viewMoreText={t.menu.drinks.viewMore}
         />
 
         {/* Reviews */}
-        <ReviewsSection />
+        <ReviewsSection t={t.reviews} reviews={data.REVIEWS} />
 
         {/* Reservation Interstitial */}
         <section id="reservation" className="w-full bg-white py-24 px-6">
@@ -68,15 +74,15 @@ const App: React.FC = () => {
 
             {/* Text Content */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left gap-8">
-              <h2 className="font-heading font-extrabold text-4xl md:text-6xl text-dark leading-tight">
-                Appelez notre<br />réceptionniste IA<br />pour réserver !
+              <h2 className="font-heading font-extrabold text-4xl md:text-6xl text-dark leading-tight whitespace-pre-line">
+                {t.reservation.title}
               </h2>
               <a
                 href="tel:0669524404"
                 className="flex items-center gap-4 bg-secondary text-white px-8 py-4 rounded-lg font-body text-2xl md:text-3xl font-bold tracking-wider hover:scale-105 transition-transform shadow-xl hover:shadow-2xl"
               >
                 <Phone size={32} fill="currentColor" />
-                06 69 52 44 04
+                {t.reservation.button}
               </a>
             </div>
 
@@ -95,7 +101,7 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer t={t.footer} />
     </div>
   );
 };

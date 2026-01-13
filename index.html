@@ -63,6 +63,88 @@
     .font-display {
       font-family: 'Caprasimo', cursive;
     }
+
+    /* Shiny CTA Animation */
+    @property --gradient-angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @property --gradient-angle-offset {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @property --gradient-percent {
+      syntax: "<percentage>";
+      initial-value: 20%;
+      inherits: false;
+    }
+
+    @property --gradient-shine {
+      syntax: "<color>";
+      initial-value: white;
+      inherits: false;
+    }
+
+    .shiny-cta {
+      --gradient-angle: 0deg;
+      --gradient-angle-offset: 0deg;
+      --gradient-percent: 20%;
+      --gradient-shine: white;
+
+      position: relative;
+      overflow: hidden;
+      border-radius: 9999px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+
+      /* Red background padding-box, Animated Gradient border-box */
+      background: linear-gradient(#ff003c, #ff003c) padding-box,
+        conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+          #ff003c 0%,
+          #ff003c 25%,
+          white 50%,
+          #ff003c 75%,
+          #ff003c 100%) border-box;
+
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(255, 0, 60, 0.4);
+      outline: none;
+      transition: transform 0.2s, box-shadow 0.3s;
+      cursor: pointer;
+      isolation: isolate;
+      font-family: 'Inter', sans-serif;
+      animation: border-spin 3s linear infinite;
+    }
+
+    @keyframes border-spin {
+      to {
+        --gradient-angle: 360deg;
+      }
+    }
+
+    .shiny-cta:active {
+      transform: translateY(1px);
+    }
+
+    .shiny-cta:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
+      transform: scale(1.02);
+    }
+
+    .shiny-cta span {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
   </style>
   <script type="importmap">
 {

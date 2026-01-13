@@ -1,8 +1,16 @@
 import React from 'react';
-import { REVIEWS } from '../constants';
+import { Review } from '../types';
 import { Star } from 'lucide-react';
 
-const ReviewsSection: React.FC = () => {
+interface ReviewsSectionProps {
+    t: {
+        title: string;
+        text: string;
+    };
+    reviews: Review[];
+}
+
+const ReviewsSection: React.FC<ReviewsSectionProps> = ({ t, reviews }) => {
     return (
         <section className="relative w-full h-[700px] bg-dark text-white overflow-hidden">
 
@@ -11,18 +19,18 @@ const ReviewsSection: React.FC = () => {
                 {/* Spacer to push first image slightly out from under text initially if desired, or just list them */}
                 <div className="shrink-0 w-[20px] md:w-[400px]" /> {/* Spacer so first image isn't buried */}
 
-                {REVIEWS.map((review, idx) => (
+                {reviews.map((review, idx) => (
                     <div
                         key={`${review.id}-${idx}`}
                         className="relative shrink-0 w-[350px] md:w-[450px] aspect-[3/4] rounded-2xl overflow-hidden snap-center hover:scale-[1.02] transition-transform duration-300 shadow-2xl"
                     >
                         <img src={review.image} className="w-full h-full object-cover" alt="" />
-                        {/* Individual card content (optional, user didn't ask to remove it, but usually text overlay is enough. I'll keep it subtle or remove if text is global) */}
+                        {/* Text overlay on individual cards is optional, keeping subtle gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                     </div>
                 ))}
                 {/* Repeat reviews to allow more scrolling if list is short */}
-                {REVIEWS.map((review, idx) => (
+                {reviews.map((review, idx) => (
                     <div
                         key={`dup-${review.id}-${idx}`}
                         className="relative shrink-0 w-[350px] md:w-[450px] aspect-[3/4] rounded-2xl overflow-hidden snap-center hover:scale-[1.02] transition-transform duration-300 shadow-2xl"
@@ -44,14 +52,12 @@ const ReviewsSection: React.FC = () => {
                     </div>
 
                     <h2 className="font-heading font-extrabold text-4xl md:text-5xl leading-tight">
-                        "Probablement la meilleure pizza que j’aie mangée récemment !"
+                        {t.title}
                     </h2>
 
                     <p className="font-body text-lg text-gray-300 leading-relaxed">
-                        Des guides gastronomiques aux Niçois fidèles, en passant par les touristes du monde entier, découvrez pourquoi notre savoir-faire fait l'unanimité à Nice.
+                        {t.text}
                     </p>
-
-                    {/* Critic Name REMOVED as requested */}
                 </div>
             </div>
 

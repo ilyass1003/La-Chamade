@@ -24,3 +24,6 @@ export interface SectionProps {
   cardBgColor?: string;
   children?: React.ReactNode;
 }
+
+declare module '*.png';
+declare module '*.jpg';

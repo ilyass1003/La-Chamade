@@ -1,7 +1,15 @@
 import React from 'react';
 import { ASSETS } from '../constants';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  t: {
+    title: string;
+    subtitle: string;
+    cta: string;
+  };
+}
+
+const Hero: React.FC<HeroProps> = ({ t }) => {
   return (
     <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-white pt-20 pb-0">
 
@@ -22,25 +30,24 @@ const Hero: React.FC = () => {
 
       {/* Main Content */}
       <div className="relative z-30 flex flex-col items-center gap-8 max-w-4xl mx-auto text-center px-4 mb-32 md:mb-0">
-        <h1 className="font-heading font-extrabold text-6xl md:text-8xl lg:text-9xl leading-tight text-dark">
-          The Art of<br />
-          Meter-Long Pizza!
+        <h1 className="font-heading font-extrabold text-6xl md:text-8xl lg:text-9xl leading-tight text-dark whitespace-pre-line">
+          {t.title}
         </h1>
 
         <p className="font-body text-gray-500 text-lg md:text-xl max-w-xl">
-          Gather your friends and family and enjoy the best pizza in Nice. Freshly made and delivered hot!
+          {t.subtitle}
         </p>
 
         <a
           href="#menu"
           className="bg-secondary text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-[0_0_15px_0_rgba(255,0,60,0.6)] transition-all duration-300 transform hover:-translate-y-1"
         >
-          View Our Menu
+          {t.cta}
         </a>
       </div>
 
       {/* Spinning Pizza - Positioned to be half hidden at the bottom */}
-      <div className="absolute bottom-[-25vw] md:bottom-[-20vw] left-1/2 -translate-x-1/2 z-20 w-[80vw] md:w-[60vw] max-w-[800px] aspect-square pointer-events-none">
+      <div className="absolute bottom-[-55vw] md:bottom-[-45vw] left-1/2 -translate-x-1/2 z-20 w-[80vw] md:w-[60vw] max-w-[800px] aspect-square pointer-events-none">
         <img
           src={ASSETS.heroPizza}
           alt="Spinning Pizza"
