@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>La Chamade - Pizza</title>
-    <meta name="description" content="The Art of Meter-Long Pizza in Nice." />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Gabarito:wght@400;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#ff9100', // Orange accent
-              secondary: '#ff003c', // Red accent
-              dark: '#1a1a1a', // Main text
-              light: '#fafafa',
-              pinkish: '#fff5f7', // Section background
-              blueLink: '#0099ff',
-            },
-            fontFamily: {
-              display: ['Caprasimo', 'cursive'],
-              heading: ['Gabarito', 'sans-serif'],
-              body: ['Inter', 'sans-serif'],
-            },
-            animation: {
-              'float-slow': 'float 6s ease-in-out infinite',
-              'float-medium': 'float 5s ease-in-out infinite',
-              'float-fast': 'float 4s ease-in-out infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-20px)' },
-              }
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Chamade - Pizza</title>
+  <meta name="description" content="The Art of Meter-Long Pizza in Nice." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Gabarito:wght@400;800;900&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff9100', // Orange accent
+            secondary: '#ff003c', // Red accent
+            dark: '#1a1a1a', // Main text
+            light: '#fafafa',
+            pinkish: '#fff5f7', // Section background
+            blueLink: '#0099ff',
+          },
+          fontFamily: {
+            display: ['Caprasimo', 'cursive'],
+            heading: ['Gabarito', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-medium': 'float 5s ease-in-out infinite',
+            'float-fast': 'float 4s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
             }
           }
         }
       }
-    </script>
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: white;
-        color: #1a1a1a;
-      }
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Gabarito', sans-serif;
-      }
-      .font-display {
-        font-family: 'Caprasimo', cursive;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: white;
+      color: #1a1a1a;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Gabarito', sans-serif;
+    }
+
+    .font-display {
+      font-family: 'Caprasimo', cursive;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -65,7 +75,10 @@
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
