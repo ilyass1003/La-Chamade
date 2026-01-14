@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ASSETS } from '../constants';
+import { MenuCategory } from '../types';
 
 interface HeroProps {
   t: {
@@ -7,9 +8,10 @@ interface HeroProps {
     subtitle: string;
     cta: string;
   };
+  onNavigate: (view: 'home' | 'menu', category: MenuCategory) => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ t }) => {
+const Hero: React.FC<HeroProps> = ({ t, onNavigate }) => {
   return (
     <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-white pt-20 pb-0">
 
@@ -38,12 +40,12 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
           {t.subtitle}
         </p>
 
-        <a
-          href="#menu"
+        <button
+          onClick={() => onNavigate('menu', 'starters')}
           className="bg-secondary text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-[0_0_15px_0_rgba(255,0,60,0.6)] transition-all duration-300 transform hover:-translate-y-1"
         >
           {t.cta}
-        </a>
+        </button>
       </div>
 
       {/* Spinning Pizza - Positioned to be half hidden at the bottom */}

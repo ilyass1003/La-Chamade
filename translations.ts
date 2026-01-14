@@ -58,6 +58,17 @@ export const TRANSLATIONS = {
                 refunds: "Remboursements et Annulations"
             },
             copyright: "Made by NIYA Partner with ❤️"
+        },
+        menuPage: {
+            title: "Carte",
+            starters: "Entrées",
+            salads: "Insalate",
+            meterPizzas: "Pizza Au Mètre",
+            classics: "Les Classiques",
+            specials: "Les Spéciales",
+            desserts: "Les Desserts",
+            drinks: "Les Boissons",
+            glutenFree: "*Pizzas sans gluten sous réservation"
         }
     },
     en: {
@@ -118,6 +129,17 @@ export const TRANSLATIONS = {
                 refunds: "Refunds & Cancellations"
             },
             copyright: "Made by NIYA Partner with ❤️"
+        },
+        menuPage: {
+            title: "Menu",
+            starters: "Starters",
+            salads: "Salads",
+            meterPizzas: "Meter Pizza",
+            classics: "The Classics",
+            specials: "The Specials",
+            desserts: "Desserts",
+            drinks: "Drinks",
+            glutenFree: "*Gluten-free pizzas upon reservation"
         }
     },
     it: {
@@ -139,7 +161,7 @@ export const TRANSLATIONS = {
             },
             desserts: {
                 title: "Lascia posto per il dolce!",
-                subtitle: "Tiramisù della casa, tortini al cioccolato e cannoli croccanti.",
+                subtitle: "Tiramisu della casa, tortini al cioccolato e cannoli croccanti.",
                 viewMore: "Vedi il nostro menù dolci"
             },
             drinks: {
@@ -178,6 +200,17 @@ export const TRANSLATIONS = {
                 refunds: "Rimborsi e Cancellazioni"
             },
             copyright: "Made by NIYA Partner with ❤️"
+        },
+        menuPage: {
+            title: "Menù",
+            starters: "Antipasti",
+            salads: "Insalate",
+            meterPizzas: "Pizza al Metro",
+            classics: "I Classici",
+            specials: "Le Speciali",
+            desserts: "I Dolci",
+            drinks: "Le Bevande",
+            glutenFree: "*Pizze senza glutine su prenotazione"
         }
     }
 };

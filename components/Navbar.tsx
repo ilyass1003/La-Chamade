@@ -1,9 +1,12 @@
 import React from 'react';
 import { ChevronDown, Phone } from 'lucide-react';
+import { MenuCategory } from '../types';
 
 interface NavbarProps {
   currentLang: 'fr' | 'en' | 'it';
   setCurrentLang: (lang: 'fr' | 'en' | 'it') => void;
+  currentView: 'home' | 'menu';
+  onNavigate: (view: 'home' | 'menu', category?: MenuCategory) => void;
   t: {
     menu: string;
     book: string;
@@ -11,7 +14,7 @@ interface NavbarProps {
   };
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentLang, setCurrentLang, t }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentLang, setCurrentLang, currentView, onNavigate, t }) => {
   const [isLangOpen, setIsLangOpen] = React.useState(false);
 
   const languages: { code: 'fr' | 'en' | 'it'; label: string }[] = [
@@ -30,7 +33,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentLang, setCurrentLang, t }) => {
       <div className="max-w-[1200px] mx-auto flex items-center justify-between relative mt-1">
         {/* Logo (Left) */}
         <div className="flex-shrink-0 z-20">
-          <a href="#" className="font-display text-4xl text-dark hover:text-dark transition-colors no-underline">
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
+            className="font-display text-4xl text-dark hover:text-dark transition-colors no-underline"
+          >
             La Chamade
           </a>
         </div>
@@ -40,7 +47,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentLang, setCurrentLang, t }) => {
           {/* Menu Link */}
           <a
             href="#menu"
-            className="font-bold text-dark text-lg hover:text-secondary transition-colors"
+            onClick={(e) => { e.preventDefault(); onNavigate('menu', 'starters'); }}
+            className={`font-bold text-lg hover:text-secondary transition-colors ${currentView === 'menu' ? 'text-secondary' : 'text-dark'}`}
           >
             {t.menu}
           </a>

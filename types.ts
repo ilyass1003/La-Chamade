@@ -15,6 +15,7 @@ export interface Review {
   role?: string;
   text: string;
   image: string;
+  stars?: number;
 }
 
 export interface SectionProps {
@@ -24,6 +25,8 @@ export interface SectionProps {
   cardBgColor?: string;
   children?: React.ReactNode;
 }
+
+export type MenuCategory = 'starters' | 'salads' | 'meterPizzas' | 'classics' | 'specials' | 'desserts' | 'drinks';
 
 declare module '*.png';
 declare module '*.jpg';

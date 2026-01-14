@@ -1,11 +1,13 @@
 import React from 'react';
-import { SectionProps, MenuItem } from '../types';
+import { SectionProps, MenuItem, MenuCategory } from '../types';
 import ProductCard from './ProductCard';
 
 interface ProductSectionProps extends SectionProps {
   items: MenuItem[];
   viewMoreLink?: string;
   viewMoreText?: string;
+  onNavigate?: (view: 'home' | 'menu', category: MenuCategory) => void;
+  targetCategory?: MenuCategory;
 }
 
 const ProductSection: React.FC<ProductSectionProps> = ({
@@ -15,7 +17,9 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   bgColor = 'bg-white',
   cardBgColor = 'bg-white',
   viewMoreLink,
-  viewMoreText
+  viewMoreText,
+  onNavigate,
+  targetCategory
 }) => {
   return (
     <section className={`w-full py-24 px-6 ${bgColor} flex flex-col items-center gap-16 relative z-10`}>
@@ -37,12 +41,19 @@ const ProductSection: React.FC<ProductSectionProps> = ({
       </div>
 
       {viewMoreLink && (
-        <a
-          href={viewMoreLink}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            if (onNavigate) {
+              onNavigate('menu', targetCategory || 'classics');
+            } else {
+              window.location.href = viewMoreLink;
+            }
+          }}
           className="mt-4 px-10 py-4 rounded-full text-white text-lg font-bold bg-secondary hover:brightness-110 hover:shadow-[0_10px_20px_rgba(255,0,60,0.3)] transition-all transform hover:-translate-y-1"
         >
           {viewMoreText || "View full Menu"}
-        </a>
+        </button>
       )}
     </section>
   );
