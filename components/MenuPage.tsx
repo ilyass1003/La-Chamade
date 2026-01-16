@@ -57,9 +57,11 @@ const MenuPage: React.FC<MenuPageProps> = ({ data, t, initialCategory }) => {
                 </div>
 
                 {/* Gluten Free Note */}
-                <p className="text-center text-gray-400 italic mb-12 text-sm">
-                    {t.menuPage.glutenFree}
-                </p>
+                {['meterPizzas', 'classics', 'specials'].includes(activeCategory) && (
+                    <p className="text-center text-gray-400 italic mb-12 text-sm">
+                        {t.menuPage.glutenFree}
+                    </p>
+                )}
 
                 {/* Menu Items List */}
                 <div className="space-y-8 max-w-[800px] mx-auto">
