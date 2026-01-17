@@ -46,11 +46,11 @@ const Footer: React.FC<FooterProps> = ({ t }) => {
               </a>
               <div className="font-body text-sm space-y-2">
                 <p>
-                  <strong>{t.hours.mon.split(':')[0]} :</strong> {t.hours.mon.split(':')[1]}<br />
-                  <strong>{t.hours.tue_fri.split(':')[0]} :</strong> {t.hours.tue_fri.split(':')[1]}
+                  <strong>{t.hours.mon.split(':')[0]} :</strong> {t.hours.mon.split(':').slice(1).join(':')}<br />
+                  <strong>{t.hours.tue_fri.split(':')[0]} :</strong> {t.hours.tue_fri.split(':').slice(1).join(':')}
                 </p>
                 <p>
-                  <strong>{t.hours.sat_sun.split(':')[0]} :</strong> {t.hours.sat_sun.split(':')[1]}
+                  <strong>{t.hours.sat_sun.split(':')[0]} :</strong> {t.hours.sat_sun.split(':').slice(1).join(':')}
                 </p>
               </div>
             </div>

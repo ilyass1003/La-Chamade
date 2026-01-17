@@ -40,8 +40,8 @@ export const TRANSLATIONS = {
             address: "12 Rue Dante, 06000 Nice",
             hours: {
                 mon: "Lundi : Fermé",
-                tue_fri: "Mardi - Vendredi : 12:00 - 14:00 et 19:00 - 22:00",
-                sat_sun: "Samedi - Dimanche : 19:00 - 22:00"
+                tue_fri: "Mardi - Vendredi : 12:00-14:00 / 19:00-22:00",
+                sat_sun: "Samedi - Dimanche : 19:00-22:00"
             },
             headings: {
                 menu: "MENU",
@@ -111,8 +111,8 @@ export const TRANSLATIONS = {
             address: "12 Rue Dante, 06000 Nice",
             hours: {
                 mon: "Monday: Closed",
-                tue_fri: "Tuesday - Friday: 12:00 PM - 2:00 PM & 7:00 PM - 10:00 PM",
-                sat_sun: "Saturday - Sunday: 7:00 PM - 10:00 PM"
+                tue_fri: "Tuesday - Friday: 12pm-2pm / 7pm-10pm",
+                sat_sun: "Saturday - Sunday: 7pm-10pm"
             },
             headings: {
                 menu: "MENU",
@@ -182,8 +182,8 @@ export const TRANSLATIONS = {
             address: "12 Rue Dante, 06000 Nice",
             hours: {
                 mon: "Lunedì: Chiuso",
-                tue_fri: "Martedì - Venerdì: 12:00 - 14:00 e 19:00 - 22:00",
-                sat_sun: "Sabato - Domenica: 19:00 - 22:00"
+                tue_fri: "Martedì - Venerdì: 12:00-14:00 / 19:00-22:00",
+                sat_sun: "Sabato - Domenica: 19:00-22:00"
             },
             headings: {
                 menu: "MENU",
